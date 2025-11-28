@@ -1,7 +1,9 @@
+import { useEffect } from "react";  
 import AdminNavbar from "../components/AdminNavbar";
 import StockBox from "../components/StockBox";
 
 const Admin = () => {
+
   return (
     <>
       <AdminNavbar />
