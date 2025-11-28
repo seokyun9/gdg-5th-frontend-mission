@@ -1,4 +1,4 @@
-const Footer = () => {
+function Footer(){
     
     return(
         <div className="fixed bottom-10 w-full flex items-center justify-center"> 

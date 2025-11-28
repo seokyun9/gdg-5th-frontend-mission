@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import gdgLogoImg from '../assets/gdg_logo.svg'
 
-const Content = () =>{
+function Content() {
     const [content, setContent] = useState("");
 
     const handleInput = (e) => {

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Content from '../components/Content';
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -11,7 +10,6 @@ import Sorting from '../components/Sorting';
 const Cart = () => {
     const [currentPage, setCurrentPage] = useState('home');
     const [cart, setCart] = useState([]);
-    const navigate = useNavigate();
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
@@ -26,7 +24,6 @@ const Cart = () => {
         // 장바구니 state 업데이트
         setCart(prevCart => [...prevCart, newCartItem]);
     };
-
     const COMPONENT__TO_RENDER = {
         category: <Category addToCart={handleAddToCart}/>,
         price: <Price addToCart={handleAddToCart}/>,
@@ -36,7 +33,7 @@ const Cart = () => {
 
     return (
         <div>
-            <Navbar changePage={handlePageChange} currentPage={currentPage} navigate={navigate} />
+            <Navbar changePage={handlePageChange} currentPage={currentPage} />
             <div className="pt-[60px]">
                 <CartContent>
                     {COMPONENT__TO_RENDER[currentPage]}
