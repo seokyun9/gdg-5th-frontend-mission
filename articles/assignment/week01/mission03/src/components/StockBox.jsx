@@ -30,7 +30,17 @@ const StockBox = ({
     }
 
     try {
-      // ...
+      const response = await fetch("http://192.168.144.228:8080/admin/products", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+          body: JSON.stringify({
+          productName: itemName, // 화면의 itemName을 서버의 productName으로 매핑
+          price: Number(price),  // 숫자로 변환해서 전송 (권장)
+          quantity: Number(count) // 숫자로 변환해서 전송
+        }),
+      });
     } catch (error) {
       console.log("데이터 POST 실패: ", error.message || null);
     }
@@ -46,7 +56,16 @@ const StockBox = ({
     }
 
     try {
-      // ...
+      const response = await fetch(`http://192.168.144.228:8080/admin/products/${itemName}/stock`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+          body: JSON.stringify({
+          productName: itemName, // 화면의 itemName을 서버의 productName으로 매핑
+          quantity: Number(count)
+        }), 
+      });
     } catch (error) {
       console.log("Error POST data: ", error);
     }
@@ -54,7 +73,7 @@ const StockBox = ({
 
   // 상품 삭제 api ---------------------------------------------
   async function handleDelete() {
-    console.log("추가 버튼 클릭");
+    console.log("삭제 버튼 클릭");
 
     if (itemName === "") {
       alert("상품명을 입력해주세요.");
@@ -62,7 +81,15 @@ const StockBox = ({
     }
 
     try {
-      // ...
+        const response = await fetch(`http://192.168.144.228:8080/admin/products`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+          body: JSON.stringify({
+          productName: itemName,
+        }),
+      });
     } catch (error) {
       console.log("Error POST data: ", error);
     }
@@ -127,7 +154,7 @@ const StockBox = ({
         <section className="mt-[7px] flex items-center justify-between">
           {comment ? (
             <div className="text-[14px] text-[#A5A5A5]">
-              * 추가 기능을 카테고리로 설정한 경우에만 카테고리를 이용헤주세요.
+              * 추가 기능을 카테고리로 설정한 경우에만 카테고리를 이용해주세요.
             </div>
           ) : (
             <div></div>
