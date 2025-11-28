@@ -1,0 +1,28 @@
+.user-card {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin : 30px;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 12px 14px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1)
+}
+
+.user-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  background :#e6e6e6;
+}
+
+.info.name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+}
+
+.info.email {
+  font-size: 12px;
+  margin: 2px 0;
+  color: #555;
+}

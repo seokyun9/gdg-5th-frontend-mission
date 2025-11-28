@@ -24,7 +24,7 @@ const Sorting = ({ product, addToCart }) => {
                                 value={sorting} // select의 현 값을 React state와 연결 (?)
                             >
                                 <option value="" default disabled hidden > 정렬기준 선택</option>
-                                <option value="이름"> 이름 </option>
+                                <option value="이름(가나다순)"> 이름(가나다순) </option>
                                 <option value="가격"> 가격 </option>
                             </select>
 
@@ -37,6 +37,7 @@ const Sorting = ({ product, addToCart }) => {
                     </div>
                 </div>
             </div>
+            <div className="h-[100px]"></div>
         </div>
     )
 }
